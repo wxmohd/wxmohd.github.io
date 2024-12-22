@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(-45deg, #080758, #87CEEB, #ADD8E6, #E0FFFF);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+body {
+    background-color: #f5f7fa;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.logout-btn {
+    padding: 0.5rem 1.5rem;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #c53030;
+}
+
+.container {
+    width: 100vw;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .profile-header {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+} */
+
+.profile-info h1 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+
+.stat-card {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    margin-bottom: 4%;
+    display: inline-table;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    width:20%;
+    margin: 5px 16px 40px;
+}
+
+
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+/* .graph-container {
+    background: #ffffff;
+    max-width: 50%;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+} */
+
+/* .graph-container h2 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+} */
+
+/* .graph {
+    width: 100%;
+    height: 400px;
+} */
+
+
+.audit-circle {
+    align-items: center;
+    margin-top: 10px;
+    position:relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.35s;
+    transform-origin: 50% 50%;
+}
+
+.audit-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* #xpGraph {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #4299e1 #e2e8f0;
+}
+
+#xpGraph::-webkit-scrollbar {
+    height: 8px;
+}
+
+#xpGraph::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 4px;
+}
+
+#xpGraph::-webkit-scrollbar-thumb {
+    background: #4299e1;
+    border-radius: 4px;
+} */
+
+/* new */
+
+.graphs-section {
+    background-color: white;
+    margin-top: 0%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.graph-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.graph-container {
+    animation: fadeIn 1.5s ease-in;
+}
+
+
+.audit-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.xp-container {
+    width: 50%;
+    height: fit-content;
+    /* overflow-x: scroll; */
+    overflow-y: hidden;
+}
+
+#xpGraph {
+    width: 100%;
+    min-width: 100%;
+    height: fit-content;
+    
+    margin: 0;
+    /* transform: rotateX(180deg); */
+}
+
+/* #xpGraph svg {
+    transform: rotateX(180deg);
+} */
+svg {
+    width: 100%;
+}
+
+.graph-container h2 {
+    color: #858d9a;
+    margin-bottom: 50px;
+    font-size: 1.25rem;
+    text-align: center;
+    position: fixed;
+}
+.stat-card {
+    transition: transform 0.3s ease;
+    
+}
+
+.stat-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.audit-circle {
+    align-self: center;
+    margin-top: 90px;
+}
+
+.progress-ring {
+    z-index: 2;
+    position: relative;
+}
+
+.bar rect {
+    cursor: pointer;
+  }
+  .tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    pointer-events: none;
+  }
+  
+  .graph-container-xp-container{
+    height: 100%;
+  }
+  /* skill graph */
+  
