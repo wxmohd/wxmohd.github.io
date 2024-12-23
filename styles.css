@@ -2,6 +2,7 @@
 
 /* Apply a moving gradient background to the body */
 body {
+    /* background-image: url("giphy.gif"); */
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -9,10 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    background: linear-gradient(-45deg, #080758, #87CEEB, #ADD8E6, #E0FFFF);
-    background-size: 400% 400%;
+    background: linear-gradient(-45deg, #080758, #87CEEB, #ADD8E6, #E0FFFF); 
+     background-size: 100% 100%;
     animation: gradientMove 15s ease infinite;
-}
+} 
 #Welcome {
     position: absolute;
     top: 15%;
@@ -21,12 +22,12 @@ body {
     text-align: center;
     font-size: 24px;
     color: #34394e;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     z-index: 1;
 }
 
 
-@keyframes gradientMove {
+/* @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
     }
@@ -36,7 +37,7 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 /* Style the login form */
 form#loginForm {
@@ -86,9 +87,32 @@ form#loginForm button[type="submit"]:hover {
 }
 
 /* Style the error message */
-form#loginForm #errorMessage {
-    color: red;
-    font-size: 0.875rem;
-    margin-top: 1rem;
-    display: none; /* Hide by default */
+.error-message {
+    color: #fff;
+    background-color: #e53e3e;
+    border-radius: 6px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    display: none;
 }
+
+.error-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* error message animation */

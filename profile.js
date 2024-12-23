@@ -90,8 +90,8 @@ async function loadProfile() {
         document.getElementById('userName').innerText = `Hello, ${titleData.user[0].firstName} ${titleData.user[0].lastName} !`;
         document.getElementById('email').innerText = ` ${titleData.user[0].email}`
         document.getElementById('userLevel').innerText = `${titleData.event_user[0].level}`;
-        document.getElementById('userXP').innerText = ` ${xpForProjects.transaction.reduce((acc, tx) => acc + tx.amount, 0)}`;
-        document.getElementById('audit').innerText = ` ${(auditData.user[0].auditRatio || 0).toFixed(1)}`;
+        document.getElementById('userXP').innerText = ` ${(xpForProjects.transaction.reduce((acc, tx) => acc + tx.amount, 0) / 1000).toFixed(1)} Kb`;
+        document.getElementById('audit').innerText = `${(auditData.user[0].auditRatio).toFixed(1)}`;
 
         // Render graphs
         renderAuditRatio(xpForProjects, auditData);
@@ -136,7 +136,7 @@ const svgXp = `
                     const x = index * barWidth + 20;
                     const y = -height;
                     const moduleName = tx.path.split('/').pop();
-                    const barColor = getColor(tx.amount, maxXP); // Get color based on XP amount
+                    const barColor = getColor(tx.amount,maxXP); // Get color based on XP amount
 
                     return `
                         <g class="bar">
@@ -144,7 +144,7 @@ const svgXp = `
                                 <animate attributeName="height" from="0" to="${height}" dur="0.8s" fill="freeze" />
                                 <animate attributeName="y" from="0" to="${y}" dur="0.8s" fill="freeze" />
                             </rect>
-                            <text x="${x + 40}" y="${-height - 10}" fill="#2d3748" font-size="12" text-anchor="middle">${tx.amount}</text>
+                            <text x="${x + 40}" y="${-height - 10}" fill="#2d3748" font-size="12" text-anchor="middle">${(tx.amount/1000).toFixed(1)}kb</text>
                             <text x="${x + 40}" y="40" fill="#2d3748" font-size="12" text-anchor="middle">${moduleName}</text>
                         </g>`;
                 }).join('')}
@@ -187,10 +187,10 @@ xpGraph.innerHTML = svgXp;
                            stroke-dashoffset: ${circumference - (ratio / 3) * circumference}"
                 />
             </svg>
-            <div class="audit-value">${ratio.toFixed(1)}</div>
+        <div class="audit-value">${auditData.user[0].auditRatio.toFixed(1)}</div>
         </div>
     `;
-    document.getElementById('audit').innerText = ` ${Math.round((auditData.user[0].auditRatio || 0) * 2) / 2}`;
+    // document.getElementById('audit').innerText = ` ${Math.round((auditData.user[0].auditRatio || 0) * 2) / 2}`;
 
 
     //hover
@@ -240,9 +240,4 @@ xpData.transaction.forEach((tx, index) => {
   });
   
 }
-
-//skill profile
-
-
-
 loadProfile();

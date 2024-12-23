@@ -12,7 +12,43 @@ body {
     margin: 0;
     padding: 0;
 }
+/*welcome page */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #080758, #87CEEB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: welcomeTransition 2s ease-in-out forwards;
+    z-index: 1000;
+}
 
+.welcome-text {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes welcomeTransition {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/*end of welcome page*/
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -23,11 +59,6 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
-
-
-body {
-    background-color: #f5f7fa;
 }
 
 .navbar {
@@ -243,7 +274,7 @@ svg {
     margin-bottom: 50px;
     font-size: 1.25rem;
     text-align: center;
-    position: fixed;
+    position:absolute;
 }
 .stat-card {
     transition: transform 0.3s ease;
